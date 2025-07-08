@@ -1,34 +1,132 @@
 :root {
-    --text-color: #2c3e50;
-    --background-color: #ffff;
+  --bg-color: #f0f0f5; 
+  --text-color: #2c3e50;
+  --box-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --button-color: #2d89ef;
+  --button-hover: #1b5fa7;
+}
 
-}
-/*Dark mode support */
 @media (prefers-color-scheme: dark) {
-:root {
-    --text-color: #ecf0f1;
-    --background-color: #1a1a1a;
+  :root {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --box-bg: #1f1f1f;
+    --shadow: rgba(255, 255, 255, 0.1);
+    --button-color: #4a90e2;
+    --button-hover: #2a62b7;
+  }
 }
-}
-/*Reset e configurações básicas */
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os itens filhos */
+  align-items: center;
   min-height: 100vh;
-  color:var(--text-color);
-  background-color:var(--background-color);
-  
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.imagem-destaque {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.apresentacao {
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  text-align: center;
 }
 
 main {
-    width: 90%; /* Ou um valor fixo como 800*/
-    max width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+  padding: 0 1rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+article {
+  background-color: var(--box-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px var(--shadow);
+  text-align: center;
+}
+
+article header h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+time {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 2rem;
+}
+
+button.proximo-dia {
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.proximo-dia:hover {
+  background-color: var(--button-hover);
+}
+
+footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: gray;
+  padding-bottom: 1rem;
+  max-width: 960px;
+  width: 100%;
 }
